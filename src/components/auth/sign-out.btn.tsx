@@ -9,7 +9,10 @@ export function SignOut() {
         await signOut({ redirectTo: "/login" })
       }}
     >
-      <Button type="submit" className="bg-gray-100">
+      <Button
+        type="submit"
+        className="flex bg-white text-black border border-slate-50 rounded hover:bg-slate-50 min-w-[8.5rem] w-[8.5rem] fixed bottom-2 right-2"
+      >
         Sign Out
       </Button>
     </form>

@@ -1,4 +1,4 @@
-import { SignInDiscord, SignInGithub } from "./auth/SignIn.btn"
+import { SignInDiscord, SignInGithub, SignInGoogle } from "./auth/SignIn.btn"
 
 export default function Login() {
   return (
@@ -6,6 +6,9 @@ export default function Login() {
       <div className="flex justify-between ">
         <SignInDiscord />
         <SignInGithub />
+      </div>
+      <div className="flex justify-between mt-2">
+        <SignInGoogle />
       </div>
     </div>
   )

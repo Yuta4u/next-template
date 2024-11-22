@@ -1,4 +1,3 @@
-import { SignInGithub } from "@/components/auth/SignIn.btn"
 import Login from "@/components/login.btn"
 
 export default function LoginPage() {

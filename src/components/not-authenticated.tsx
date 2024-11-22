@@ -1,6 +1,4 @@
-"use client"
-
-import { redirect } from "next/navigation"
+import Link from "next/link"
 import React from "react"
 
 const NotAuthenticated = () => {
@@ -10,11 +8,8 @@ const NotAuthenticated = () => {
         <h1>You are not authenticated</h1>
         <p>
           Please{" "}
-          <span
-            onClick={() => redirect("/login")}
-            className="underline text-blue-700 hover:cursor-pointer"
-          >
-            log in
+          <span className="underline text-blue-700 hover:cursor-pointer">
+            <Link href="/login">log in</Link>
           </span>{" "}
           to access this page.
         </p>
