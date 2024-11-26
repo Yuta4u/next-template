@@ -11,6 +11,10 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       }
       return session
     },
+    async authorized({ auth, request }) {
+      return true
+    },
   },
+
   ...authConfig,
 })

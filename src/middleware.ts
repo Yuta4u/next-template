@@ -2,12 +2,18 @@ import NextAuth from "next-auth"
 import authConfig from "../auth.config"
 import { NextRequest } from "next/server"
 
-// Use only one of the two middleware options below
-// 1. Use middleware directly
-// export const { auth: middleware } = NextAuth(authConfig)
-
-// 2. Wrapped middleware option
 const { auth } = NextAuth(authConfig)
 export default auth(async function middleware(req: NextRequest) {
-  // Your custom middleware logic goes here
+  const { nextUrl } = req
+
+  const protectedRoutes = ["/profile", "/heyho", "/foody"]
+  const token = req.cookies
+    .getAll()
+    .find((obj) => obj.name === process.env.SESSION_TOKEN)?.value
+
+  if (protectedRoutes.includes(nextUrl.pathname)) {
+    if (!token) {
+      return Response.redirect(new URL("/login", nextUrl))
+    }
+  }
 })

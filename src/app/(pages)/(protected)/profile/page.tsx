@@ -1,6 +1,5 @@
 import { auth } from "@/auth"
 import { User } from "next-auth"
-import { redirect } from "next/navigation"
 import ProfileContent from "@/components/pages/profile/profile"
 
 export type TSession = {
@@ -14,9 +13,7 @@ export type TSession = {
 export default async function ProfilePage() {
   const session: TSession = await auth()
 
-  if (!session?.user) {
-    return redirect("/login")
-  }
+  console.log("hit")
 
   return <ProfileContent session={session} />
 }
