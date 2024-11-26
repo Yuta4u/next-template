@@ -2,7 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { UserCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
-import { TSession } from "@/app/(pages)/(protected)/profile/page"
+import { TSession } from "@/app/profile/page"
 
 export default function ProfileContent({ session }: { session: TSession }) {
   const user = session?.user
