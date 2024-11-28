@@ -18,7 +18,7 @@ export default NextAuth(authConfig).auth(async function middleware(
 
   // Konfigurasi route yang dilindungi
   const protectedRoutes = ["/profile", "/heyho", "/foody"]
-  const authRoutes = ["/login", "/register"]
+  const authRoutes = ["/login"]
 
   // Ambil token dengan opsi tambahan
   const token = (await getToken({
@@ -49,7 +49,7 @@ export default NextAuth(authConfig).auth(async function middleware(
   // Mencegah akses ke halaman auth jika sudah login
   if (isAuthRoute) {
     if (token) {
-      return NextResponse.redirect(new URL("/dashboard", nextUrl.origin))
+      return NextResponse.redirect(new URL("/profile", nextUrl.origin))
     }
   }
 
@@ -64,9 +64,7 @@ export const config = {
     "/profile/:path*",
     "/heyho/:path*",
     "/foody/:path*",
-
     // Route autentikasi
     "/login",
-    "/register",
   ],
 }
