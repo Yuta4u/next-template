@@ -5,7 +5,15 @@ import { auth } from "@/auth"
 import { SignOut } from "./auth/sign-out.btn"
 import Link from "next/link"
 import { Button } from "./ui/button"
-import { TSession } from "@/app/profile/page"
+import { User } from "next-auth"
+
+export type TSession = {
+  user?: User & {
+    role?: string
+    name?: string | null
+    email?: string | null
+  }
+} | null
 
 export default async function Layout({
   children,
@@ -13,6 +21,7 @@ export default async function Layout({
   children: React.ReactNode
 }) {
   const session: TSession = await auth()
+
   return (
     <>
       <ThemeProvider

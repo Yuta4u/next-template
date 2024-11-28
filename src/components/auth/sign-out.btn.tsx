@@ -1,5 +1,6 @@
 import { signOut } from "@/auth"
 import { Button } from "../ui/button"
+import { cookies } from "next/headers"
 
 export function SignOut() {
   return (
